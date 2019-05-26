@@ -1,9 +1,12 @@
 package com.company;
 
+import org.jetbrains.annotations.Contract;
+
 import java.util.Arrays;
 
 class Population {
 
+    @Contract(pure = true)
     Population(int length) {
         this.chromosomes = new Chromosome[length];
     }

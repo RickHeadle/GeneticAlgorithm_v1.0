@@ -1,5 +1,7 @@
 package com.company;
 
+import org.jetbrains.annotations.NotNull;
+
 class GeneticAlgorithm {
     static final int[] TARGET_CHROMOSOME = {1, 1, 0, 1, 0, 0, 1, 1, 1, 0};
     static final int POPULATION_SIZE = 8;
@@ -7,7 +9,7 @@ class GeneticAlgorithm {
     private static final int TOURNAMENT_SELECTION_SIZE = 4;
     private static final double MUTATION_RATE = 0.25;
 
-    private Population crossoverPopulation(Population population) {
+    private Population crossoverPopulation(@NotNull Population population) {
         Population crossoverPopulation = new Population(population.getChromosomes().length);
         for (int index = 0; index < NUMBER_OF_ELITE_CHROMOSOMES; index++)
             crossoverPopulation.getChromosomes()[index] = population.getChromosomes()[index];
@@ -19,7 +21,7 @@ class GeneticAlgorithm {
         return crossoverPopulation;
     }
 
-    private Population mutatePopulation(Population population) {
+    private Population mutatePopulation(@NotNull Population population) {
         Population mutatePopulation = new Population(population.getChromosomes().length);
         for (int index = 0; index < NUMBER_OF_ELITE_CHROMOSOMES; index++)
             mutatePopulation.getChromosomes()[index] = population.getChromosomes()[index];
@@ -28,7 +30,7 @@ class GeneticAlgorithm {
         return mutatePopulation;
     }
 
-    private Chromosome crossoverChromosome(Chromosome chromosome1, Chromosome chromosome2) {
+    private Chromosome crossoverChromosome(@NotNull Chromosome chromosome1, Chromosome chromosome2) {
         Chromosome crossoverChromosome = new Chromosome(TARGET_CHROMOSOME.length);
         for (int index = 0; index < chromosome1.getGenes().length; index++)
             if (Math.random() < 0.5)
@@ -37,7 +39,7 @@ class GeneticAlgorithm {
         return crossoverChromosome;
     }
 
-    private Chromosome mutateChromosome(Chromosome chromosome) {
+    private Chromosome mutateChromosome(@NotNull Chromosome chromosome) {
         Chromosome mutateChromosome = new Chromosome(TARGET_CHROMOSOME.length);
         for (int index = 0; index < chromosome.getGenes().length; index++)
             if (Math.random() < MUTATION_RATE)

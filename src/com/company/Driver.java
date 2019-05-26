@@ -1,5 +1,7 @@
 package com.company;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 
 public class Driver {
@@ -30,7 +32,7 @@ public class Driver {
         }
     }
 
-    private static void printPopulation(Population population, String heading) {
+    private static void printPopulation(@NotNull Population population, String heading) {
         System.out.println(heading);
         System.out.println("---------------------------------------------");
         for (int index = 0; index < population.getChromosomes().length; index++)

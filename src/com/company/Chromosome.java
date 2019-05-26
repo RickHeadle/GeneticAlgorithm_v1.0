@@ -1,5 +1,7 @@
 package com.company;
 
+import org.jetbrains.annotations.Contract;
+
 import java.util.Arrays;
 
 public class Chromosome {
@@ -17,6 +19,7 @@ public class Chromosome {
         return this;
     }
 
+    @Contract(pure = true)
     private int recalculateFitness() {
         int chromosomeFitness = 0;
         for (int index = 0; index < genes.length; index++) {
@@ -30,6 +33,7 @@ public class Chromosome {
         return Arrays.toString(this.genes);
     }
 
+    @Contract(pure = true)
     Chromosome(int length) {
         this.genes = new int[length];
     }
